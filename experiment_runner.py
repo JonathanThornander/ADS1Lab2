@@ -1,9 +1,6 @@
 import time
 
 def run(algorithms, datagenerator, maxsize, repeat = 1, step = 100):
-    # algorithms = A list of algorithms
-    # arrays = a list of lists containing integers to be sorted
-    # repeat = how many times each algorithm should sort a specific list, used for better avarage
     results = {'n': [], 'algorithms': {}}
 
     for algorithm in algorithms:
@@ -21,7 +18,7 @@ def run(algorithms, datagenerator, maxsize, repeat = 1, step = 100):
             # Test Start
             starttime = time.time()
             for test in range(repeat):
-                algorithm.sort(datagenerator.data(currentSize))
+                algorithm.sort(datagenerator.data(currentSize))  # Generates an array of the given type and size
             endtime = time.time()
             # Test End
 

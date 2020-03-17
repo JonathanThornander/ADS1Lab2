@@ -11,21 +11,26 @@ from algorithms.bogosort import Bogosort
 from datagenerators import *
 
 def main():
-    load = 0 # Used to display load indicator for user
 
+    # A list containing datagenerators, used to generate arrays of integers (i.e sorted, almost sorted, etc)
     datagenerators = [UnsortedData, SortedData, AlmostSortedData, ReversedData]
-    algorithms = [Mergesort, Bubblesort, Cocktailsort, QuickSort, SelectionSort, Insertionsort]
+    # A list containing algorithms
+    algorithms = [QuickSort, SelectionSort, Insertionsort]
+    maxsize = 400  # Maximum list size. Should be lower than 2000 when using recursive algorithms
+    repeat = 40  # Controlls how many list that should be generated for a given lenght and type. Low value = Hight Accuracy
+    step = 40  # Controlls how much the list size will vary for every iteration. Low value = Hight Accuracy
 
-    maxsize = 600  # Bör ej vara mer än 1000 pga rekursicva algoritmer
-
+    loadindicator = 0 # Used to display load indicator for user
     print("Starting...")
     for datagenerator in datagenerators:
+        print(f"Colleting data from {datagenerator.name}")
 
-        results = run(algorithms = algorithms, datagenerator = datagenerator, maxsize = maxsize, repeat = 10, step = 100)
+        # Get data from test with
+        results = run(algorithms=algorithms, datagenerator=datagenerator, maxsize=maxsize, repeat=repeat, step=step)
         visualizer.plot_results(results, datagenerator.name)
 
-        load += 1/len(datagenerators)
-        print(f"{load*100} % done...")
+        loadindicator += 1/len(datagenerators)
+        print(f"{int(loadindicator*100)} % done...")
 
     visualizer.show()
     

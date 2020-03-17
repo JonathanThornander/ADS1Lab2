@@ -17,11 +17,6 @@ def plot_results(results, title, filname=None):
     ax1.set_ylabel("N(Ops)")
     ax2.set_ylabel("Time(s)")
 
-    #ax1.plot(X, [x**2 for x in X], label = "Square", ls='--', alpha=0.3)
-    #ax1.plot(X, [x for x in X], label = "Linear", ls='--', alpha=0.3)
-    #ax1.plot(X, [x*log2(x) for x in X], label = "nLogn", ls=':', alpha=0.3)
-
-
     for name in results['algorithms']:
         Y_n_ops = results['algorithms'][name]['n_ops']
         Y_time = results['algorithms'][name]['time']
