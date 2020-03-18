@@ -1,7 +1,5 @@
 import random
 
-# All classes bellow have solely static variables and methods
-
 class SortedData:
     name = "Sorted Data"
 
@@ -23,7 +21,7 @@ class UnsortedData:
 
     @staticmethod
     def data(n):
-        return [random.randint(1, 99) for x in range(n)]
+        return [random.randint(1, n) for x in range(n)]
 
 class AlmostSortedData:
     name = "Almost Sorted Data"
