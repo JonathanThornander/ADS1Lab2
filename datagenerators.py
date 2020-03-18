@@ -12,9 +12,7 @@ class ReversedData:
 
     @staticmethod
     def data(n):
-        l = list(range(n))
-        l.reverse()
-        return l
+        return list(range(n, 0, -1))
 
 class UnsortedData:
     name = "Unsorted Data"
@@ -29,4 +27,4 @@ class AlmostSortedData:
     @staticmethod
     def data(n):
         # Makes every 10th item switch 2 places
-        return list(map(lambda x: x if x%10 != 0 else x+2, SortedData.data(n))) 
+        return list(map(lambda x: x if x%10 != 0 else x+2, SortedData.data(n)))
