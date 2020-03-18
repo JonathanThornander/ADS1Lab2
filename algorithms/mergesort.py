@@ -14,9 +14,8 @@ class Mergesort:
             self.sort(R) # Sorting the second half 
     
             i = j = k = 0
-            
-            # Copy data to temp arrays L[] and R[] 
-            while i < len(L) and j < len(R):
+           
+            while i < len(L) and j < len(R): # Copy data to temp arrays L[] and R[] 
                 self.n_ops += 1
                 if L[i] < R[j]: 
                     arr[k] = L[i] 
@@ -26,8 +25,7 @@ class Mergesort:
                     j+=1
                 k+=1
             
-            # Checking if any element was left 
-            while i < len(L): 
+            while i < len(L):  # Checking if any element was left 
                 arr[k] = L[i] 
                 i+=1
                 k+=1
