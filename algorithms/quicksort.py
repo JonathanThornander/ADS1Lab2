@@ -12,10 +12,6 @@ class QuickSort:
     def inPlaceQuickSort(self, A,start,end):
         if start<end:
             pivot=random.randint(start,end)
-            # temp=A[end]
-            # A[end]=A[pivot]
-            # A[pivot]=temp
-
             A[end], A[pivot] = A[pivot], A[end]
             
             p=self.inPlacePartition(A,start,end)
@@ -25,18 +21,12 @@ class QuickSort:
 
     def inPlacePartition(self, A,start,end):
         pivot=random.randint(start,end)
-        temp=A[end]
-        A[end]=A[pivot]
-        A[pivot]=temp
+        A[end], A[pivot] = A[pivot], A[end]
         newPivotIndex=start-1
         for index in range(start,end):
             self.n_ops += 1
             if A[index]<A[end]:#check if current val is less than pivot value
                 newPivotIndex=newPivotIndex+1
-                temp=A[newPivotIndex]
-                A[newPivotIndex]=A[index]
-                A[index]=temp
-        temp=A[newPivotIndex+1]
-        A[newPivotIndex+1]=A[end]
-        A[end]=temp
+                A[newPivotIndex], A[index] = A[index], A[newPivotIndex]
+        A[newPivotIndex+1], A[end] = A[end], A[newPivotIndex+1]
         return newPivotIndex+1
