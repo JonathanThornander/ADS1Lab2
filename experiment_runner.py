@@ -13,7 +13,7 @@ def run(algorithms, datagenerator, maxsize, repeat = 1, step = 100):
         results['n'].append(currentSize)
 
         for algorithm in algorithms:
-            algorithm = algorithm()  # instantiate a new algorithm-incatnce
+            algorithm = algorithm()  # Initiates a new algorithm-instance
 
             # Test Start
             starttime = time.time()
