@@ -1,3 +1,6 @@
+# A randomizing-sorting algorithm with a average complexity of O((n+1)!).
+# Not really executable past 12 (depending on computer) elements.
+
 from itertools import permutations
 
 class Bogosort:
