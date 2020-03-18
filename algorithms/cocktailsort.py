@@ -1,5 +1,6 @@
 # Works in the same way as bubblesort, with the addition of moving elements both up the index aswell as down. 
-# This makes it the same complexity as bubblesort, but slightly faster on average.
+# This makes it the same complexity as bubblesort, but slightly faster on average. It is built in the same way as
+# bubblesort, but has more checks on what parts of the list that is already sorted.
 
 class Cocktailsort:
     name = "Coctail-Sort"
