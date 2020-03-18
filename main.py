@@ -14,25 +14,21 @@ from datagenerators import *
 
 datagenerators = [UnsortedData, SortedData, AlmostSortedData, ReversedData] # A list containing datagenerators, used to generate arrays of integers (i.e sorted, almost sorted, etc)
 algorithms = [QuickSort, SelectionSort, Insertionsort] # A list containing algorithms
-maxsize = 400  # Maximum list size. Should be lower than 2000 when using recursive algorithms
+maxsize = 100  # Maximum list size. Should be lower than 2000 when using recursive algorithms
 repeat = 20  # Controlls how many list that should be generated for a given lenght and type. Low value = Hight Accuracy
-step = 20  # Controlls how much the list size will vary for every iteration. Low value = Hight Accuracy
+step = 10  # Controlls how much the list size will vary for every iteration. Low value = Hight Accuracy
 
 
 def main():
     print("Starting collecting data...")
-    processes = []
     for datagenerator in datagenerators:
         p = multiprocessing.Process(target=execute, args=(datagenerator,))
         p.start()
-        processes.append(p)
-
-    for process in processes:
-        process.join()
 
 def execute(datagenerator):
     results = run(algorithms=algorithms, datagenerator=datagenerator, maxsize=maxsize, repeat=repeat, step=step)
     visualizer.plot_results(results, datagenerator.name)
+
     print(f"Done calculating {datagenerator.name}")
     visualizer.show()
 
