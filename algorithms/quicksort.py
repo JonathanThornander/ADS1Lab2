@@ -25,7 +25,7 @@ class QuickSort:
         newPivotIndex=start-1
         for index in range(start,end):
             self.n_ops += 1
-            if A[index]<A[end]:#check if current val is less than pivot value
+            if A[index]<A[end]:
                 newPivotIndex=newPivotIndex+1
                 A[newPivotIndex], A[index] = A[index], A[newPivotIndex]
         A[newPivotIndex+1], A[end] = A[end], A[newPivotIndex+1]
